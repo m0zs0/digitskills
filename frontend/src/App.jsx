@@ -11,7 +11,9 @@ import {
   Send 
 } from 'lucide-react';
 
-const API_BASE_URL = 'http://localhost/api';
+/*const API_BASE_URL = 'http://localhost/api';*/
+const API_BASE_URL = 'https://mozso.moriczcloud.hu/api';
+
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
