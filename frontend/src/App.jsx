@@ -189,7 +189,7 @@ export default function App() {
                 <div className="bg-slate-900 p-4 rounded-lg border border-slate-700/60">
                   <span className="text-xs text-teal-400 font-bold uppercase">I. forduló</span>
                   <h3 className="font-semibold text-lg text-slate-200">Online Moodle teszt</h3>
-                  <p className="text-sm text-slate-400 mt-1">Határidő: <strong>2026. november 06.</strong></p>
+                  <p className="text-sm text-slate-400 mt-1">Határidő: <strong>2026. november 08.</strong></p>
                   <p className="text-xs text-slate-500 mt-2">Értékelés: pontosság és megoldási idő alapján.</p>
                 </div>
 
@@ -256,6 +256,7 @@ export default function App() {
                     <th className="px-6 py-3">Helyezés</th>
                     <th className="px-6 py-3">Csapatnév</th>
                     <th className="px-6 py-3">Intézmény</th>
+                    <th className="px-6 py-3">Felkészítő tanár</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-700">
@@ -263,16 +264,19 @@ export default function App() {
                     <td className="px-6 py-4 font-bold text-amber-400">🥇 1. Helyezett</td>
                     <td className="px-6 py-4 font-semibold">Trükkös trió</td>
                     <td className="px-6 py-4">Arany János Általános Iskola</td>
+                    <td className="px-6 py-4">Tuka Antal</td>
                   </tr>
                   <tr className="hover:bg-slate-700/30">
                     <td className="px-6 py-4 font-bold text-slate-300">🥈 2. Helyezett</td>
                     <td className="px-6 py-4 font-semibold">navi</td>
                     <td className="px-6 py-4">Arany János Általános Iskola</td>
+                    <td className="px-6 py-4">Tuka Antal</td>
                   </tr>
                   <tr className="hover:bg-slate-700/30">
                     <td className="px-6 py-4 font-bold text-amber-600">🥉 3. Helyezett</td>
                     <td className="px-6 py-4 font-semibold">Nyolcad</td>
-                    <td className="px-6 py-4">Általános Iskola</td>
+                    <td className="px-6 py-4">Nagyhegyesi Veres Péter Általános Iskola</td>
+                    <td className="px-6 py-4">Haranginé Szabó Tünde</td>
                   </tr>
                 </tbody>
               </table>
