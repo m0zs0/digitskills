@@ -70,40 +70,50 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-900 text-slate-100 font-sans">
       {/* Fejléc / Navigáció */}
-      <header className="bg-slate-800/80 backdrop-blur border-b border-slate-700 sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl font-black tracking-wider text-cyan-400">#DigitSkills</span>
-            <span className="text-xs bg-cyan-950 text-cyan-300 px-2 py-1 rounded border border-cyan-800">2026</span>
-          </div>
-          <nav className="flex flex-wrap gap-2 md:gap-4 text-sm font-medium">
-            <button 
-              onClick={() => setActiveTab('home')}
-              className={`px-3 py-1.5 rounded-lg transition ${activeTab === 'home' ? 'bg-cyan-600 text-white' : 'hover:bg-slate-700 text-slate-300'}`}
-            >
-              Főoldal (2026)
-            </button>
-            <button 
-              onClick={() => setActiveTab('tasks')}
-              className={`px-3 py-1.5 rounded-lg transition ${activeTab === 'tasks' ? 'bg-cyan-600 text-white' : 'hover:bg-slate-700 text-slate-300'}`}
-            >
-              Korábbi Feladatok
-            </button>
-            <button 
-              onClick={() => setActiveTab('winners')}
-              className={`px-3 py-1.5 rounded-lg transition ${activeTab === 'winners' ? 'bg-cyan-600 text-white' : 'hover:bg-slate-700 text-slate-300'}`}
-            >
-              Helyezettek
-            </button>
-            <button 
-              onClick={() => setActiveTab('register')}
-              className={`px-3 py-1.5 rounded-lg transition ${activeTab === 'register' ? 'bg-cyan-600 text-white' : 'hover:bg-slate-700 text-slate-300'}`}
-            >
-              Jelentkezés
-            </button>
-          </nav>
-        </div>
-      </header>
+    <header className="bg-slate-800/80 backdrop-blur border-b border-slate-700 sticky top-0 z-50">
+      <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+        {/* Kattintható logó és évszám -> Főoldalra navigál */}
+        <button 
+          onClick={() => setActiveTab('home')}
+          className="flex items-center gap-2 group cursor-pointer focus:outline-none"
+        >
+          <span className="text-2xl font-black tracking-wider text-cyan-400 group-hover:text-cyan-300 transition">
+            #DigitSkills
+          </span>
+          <span className="text-xs bg-cyan-950 text-cyan-300 px-2 py-1 rounded border border-cyan-800">
+            2026
+          </span>
+        </button>
+
+        <nav className="flex flex-wrap items-center gap-2 md:gap-4 text-sm font-medium">
+          <button 
+            onClick={() => setActiveTab('tasks')}
+            className={`px-3 py-1.5 rounded-lg transition ${activeTab === 'tasks' ? 'bg-cyan-600 text-white' : 'hover:bg-slate-700 text-slate-300'}`}
+          >
+            Korábbi feladatok
+          </button>
+
+          <button 
+            onClick={() => setActiveTab('winners')}
+            className={`px-3 py-1.5 rounded-lg transition ${activeTab === 'winners' ? 'bg-cyan-600 text-white' : 'hover:bg-slate-700 text-slate-300'}`}
+          >
+            Korábbi helyezettek
+          </button>
+
+          {/* Kiemelt Jelentkezés gomb */}
+          <button 
+            onClick={() => setActiveTab('register')}
+            className={`px-4 py-1.5 rounded-lg font-semibold transition shadow-md ${
+              activeTab === 'register' 
+                ? 'bg-green-400 text-slate-900 ring-2 ring-green-300' 
+                : 'bg-green-500 hover:bg-green-400 text-slate-950'
+            }`}
+          >
+            Jelentkezés
+          </button>
+        </nav>
+      </div>
+    </header>
 
       {/* Fő tartalom */}
       <main className="max-w-6xl mx-auto px-4 py-8">
@@ -113,8 +123,8 @@ export default function App() {
           <div className="space-y-12">
             {/* Hero Banner */}
             <div className="text-center space-y-4 py-8 bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl p-6 border border-slate-700">
-              <h1 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-200">
-                #DigitSkills Csapatverseny
+              <h1 className="text-3xl md:text-5xl leading-tight font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-200">
+                #DigitSkills csapatverseny
               </h1>
               <p className="text-lg text-slate-300 max-w-2xl mx-auto">
                 Szakértői digitális kultúra csapatverseny 8. osztályos tanulók számára.
@@ -127,7 +137,7 @@ export default function App() {
                   <Send className="w-5 h-5" /> Jelentkezés a versenyre
                 </button>
                 <a 
-                  href="https://moodle.moriczref.hu" 
+                  href="https://moricz.arrabonus.hu/moodle2/course/view.php?id=81" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-slate-700 hover:bg-slate-600 text-cyan-300 font-semibold px-6 py-3 rounded-xl border border-cyan-500/30 transition flex items-center gap-2"
@@ -142,7 +152,7 @@ export default function App() {
               <div className="bg-slate-800 p-6 rounded-xl border border-slate-700 space-y-3">
                 <div className="flex items-center gap-3 text-cyan-400 font-bold text-lg">
                   <UserCheck className="w-6 h-6" />
-                  <span>Célcsoport & Szakértői Jelleg</span>
+                  <span>Célcsoport</span>
                 </div>
                 <p className="text-slate-300 text-sm leading-relaxed">
                   A versenyre <strong>8. osztályos tanulókból álló 3 fős csapatok</strong> jelentkezését várjuk.
@@ -166,7 +176,7 @@ export default function App() {
             {/* Ütemterv / Dátumok */}
             <div className="bg-slate-800 p-6 rounded-xl border border-slate-700">
               <h2 className="text-xl font-bold text-slate-100 mb-6 flex items-center gap-2">
-                <Calendar className="w-5 h-5 text-cyan-400" /> Versenykiírás és Menetrend (2026)
+                <Calendar className="w-5 h-5 text-cyan-400" /> Versenykiírás és menetrend
               </h2>
               <div className="grid md:grid-cols-3 gap-4">
                 <div className="bg-slate-900 p-4 rounded-lg border border-slate-700/60">
@@ -177,17 +187,17 @@ export default function App() {
                 </div>
 
                 <div className="bg-slate-900 p-4 rounded-lg border border-slate-700/60">
-                  <span className="text-xs text-teal-400 font-bold uppercase">I. Forduló</span>
-                  <h3 className="font-semibold text-lg text-slate-200">Online Moodle Teszt</h3>
+                  <span className="text-xs text-teal-400 font-bold uppercase">I. forduló</span>
+                  <h3 className="font-semibold text-lg text-slate-200">Online Moodle teszt</h3>
                   <p className="text-sm text-slate-400 mt-1">Határidő: <strong>2026. november 06.</strong></p>
                   <p className="text-xs text-slate-500 mt-2">Értékelés: pontosság és megoldási idő alapján.</p>
                 </div>
 
                 <div className="bg-slate-900 p-4 rounded-lg border border-slate-700/60">
-                  <span className="text-xs text-amber-400 font-bold uppercase">II. Forduló</span>
-                  <h3 className="font-semibold text-lg text-slate-200">Helyszíni Döntő</h3>
+                  <span className="text-xs text-amber-400 font-bold uppercase">II. forduló</span>
+                  <h3 className="font-semibold text-lg text-slate-200">Helyszíni döntő</h3>
                   <p className="text-sm text-slate-400 mt-1">Dátum: <strong>2026. november 17.</strong></p>
-                  <p className="text-xs text-slate-500 mt-2">A legjobb 6 csapat számára a szakmai központban.</p>
+                  <p className="text-xs text-slate-500 mt-2">A legjobb 6 csapat számára a Móriczban.</p>
                 </div>
               </div>
             </div>
@@ -197,7 +207,7 @@ export default function App() {
         {/* REGEBBI FELADATOK SZEKCIÓ */}
         {activeTab === 'tasks' && (
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-cyan-400">Régebbi évek versenyfeladatai</h2>
+            <h2 className="text-2xl font-bold text-cyan-400">Korábbi évek versenyfeladatai</h2>
             <p className="text-slate-400 text-sm">Töltsd le az előző évek feladatsorait a felkészüléshez!</p>
 
             <div className="grid md:grid-cols-2 gap-4">
@@ -209,7 +219,14 @@ export default function App() {
                     <span className="text-xs text-slate-400">PDF • 1.2 MB</span>
                   </div>
                 </div>
-                <button className="bg-slate-700 hover:bg-slate-600 px-3 py-1.5 rounded text-xs font-medium">Letöltés</button>
+                <a
+                  href="https://drive.google.com/uc?export=download&id=1ivLcqw-ggOusi1wQF6WTidf6xjCI3mFC"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-slate-700 hover:bg-slate-600 px-3 py-1.5 rounded text-xs font-medium"
+                >
+                  Letöltés
+                </a>
               </div>
 
               <div className="bg-slate-800 p-4 rounded-lg border border-slate-700 flex items-center justify-between">
@@ -229,7 +246,7 @@ export default function App() {
         {/* HELYEZETTEK SZEKCIÓ */}
         {activeTab === 'winners' && (
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-cyan-400">Régebbi évek helyezettjei</h2>
+            <h2 className="text-2xl font-bold text-cyan-400">Korábbi évek helyezettjei</h2>
             
             <div className="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden">
               <div className="bg-slate-700/50 px-6 py-3 font-semibold text-slate-200">2025. évi eredménylista</div>
@@ -244,18 +261,18 @@ export default function App() {
                 <tbody className="divide-y divide-slate-700">
                   <tr className="hover:bg-slate-700/30">
                     <td className="px-6 py-4 font-bold text-amber-400">🥇 1. Helyezett</td>
-                    <td className="px-6 py-4 font-semibold">ByteKódolók</td>
-                    <td className="px-6 py-4">Móricz Zsigmond Református Kollégium</td>
+                    <td className="px-6 py-4 font-semibold">Trükkös trió</td>
+                    <td className="px-6 py-4">Arany János Általános Iskola</td>
                   </tr>
                   <tr className="hover:bg-slate-700/30">
                     <td className="px-6 py-4 font-bold text-slate-300">🥈 2. Helyezett</td>
-                    <td className="px-6 py-4 font-semibold">MicroBits</td>
+                    <td className="px-6 py-4 font-semibold">navi</td>
                     <td className="px-6 py-4">Arany János Általános Iskola</td>
                   </tr>
                   <tr className="hover:bg-slate-700/30">
                     <td className="px-6 py-4 font-bold text-amber-600">🥉 3. Helyezett</td>
-                    <td className="px-6 py-4 font-semibold">Algoritmusok</td>
-                    <td className="px-6 py-4">Kossuth Lajos Általános Iskola</td>
+                    <td className="px-6 py-4 font-semibold">Nyolcad</td>
+                    <td className="px-6 py-4">Általános Iskola</td>
                   </tr>
                 </tbody>
               </table>
@@ -267,7 +284,7 @@ export default function App() {
         {activeTab === 'register' && (
           <div className="max-w-2xl mx-auto space-y-6">
             <div className="text-center space-y-2">
-              <h2 className="text-2xl font-bold text-cyan-400">Jelentkezési Űrlap (2026)</h2>
+              <h2 className="text-2xl font-bold text-cyan-400">Jelentkezési űrlap</h2>
               <p className="text-sm text-slate-400">Töltsd ki az alábbi adatokat a csapat regisztrációjához!</p>
             </div>
 
@@ -404,7 +421,7 @@ export default function App() {
                 disabled={loading}
                 className="w-full bg-cyan-500 hover:bg-cyan-600 disabled:opacity-50 text-slate-950 font-bold py-3 rounded-xl transition flex items-center justify-center gap-2"
               >
-                {loading ? 'Beküldés folyamatban...' : 'Regisztráció Beküldése'}
+                {loading ? 'Beküldés folyamatban...' : 'Regisztráció beküldése'}
               </button>
             </form>
           </div>
