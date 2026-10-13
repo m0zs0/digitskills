@@ -216,11 +216,11 @@ export default function App() {
                   <FileText className="w-8 h-8 text-cyan-400" />
                   <div>
                     <h3 className="font-semibold">2025. évi I. forduló - Moodle teszt mintafeladatok</h3>
-                    <span className="text-xs text-slate-400">PDF • 1.2 MB</span>
+                    <span className="text-xs text-slate-400">PDF • 1.0 MB</span>
                   </div>
                 </div>
                 <a
-                  href="https://drive.google.com/uc?export=download&id=1ivLcqw-ggOusi1wQF6WTidf6xjCI3mFC"
+                  href="https://drive.google.com/file/d/1CXmRbc6ok8HHdSnkaWJzAcOHwmHSu5Mo/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-slate-700 hover:bg-slate-600 px-3 py-1.5 rounded text-xs font-medium"
