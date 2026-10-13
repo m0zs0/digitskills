@@ -5,7 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Registration;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\AdminRegistrationMail;
+use App\Mail\TeamRegistrationMail;
 
 class RegistrationController extends Controller
 {
@@ -34,7 +38,15 @@ class RegistrationController extends Controller
             ], 422);
         }
 
-        $registration = Registration::create($request->all());
+        $registration = Registration::create($validator->validated());
+
+        $mailData = $validator->validated();
+        try {
+            Mail::to('digitskills@moriczref.hu')->send(new AdminRegistrationMail($mailData));
+            Mail::to($mailData['team_email'])->send(new TeamRegistrationMail($mailData));
+        } catch (\Throwable $e) {
+            Log::error('Regisztrációs e-mail küldése sikertelen: ' . $e->getMessage());
+        }
 
         return response()->json([
             'status'  => 'success',

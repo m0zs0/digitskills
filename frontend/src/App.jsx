@@ -60,7 +60,7 @@ export default function App() {
         const firstError = Object.values(err.response.data.errors)[0][0];
         setStatus({ type: 'error', message: firstError });
       } else {
-        setStatus({ type: 'error', message: 'Hiba történt a regisztráció során. Próbáld újra later!' });
+        setStatus({ type: 'error', message: 'Hiba történt a regisztráció során. Próbáld újra később!' });
       }
     } finally {
       setLoading(false);
